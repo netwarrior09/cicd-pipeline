@@ -18,7 +18,7 @@ pipeline {
         DOCKER_IMG = 'kassiyenov/my-app:latest'
       }
       steps {
-        sh 'docker build -t kkm-epam-image .'
+        sh 'sudo docker build -t kkm-epam-image .'
       }
     }
 
@@ -28,8 +28,8 @@ pipeline {
         DOCKER_PASS = 'u2YFvd2xr4kx*'
       }
       steps {
-        sh '''docker login -u $DOCKER_USER -p $DOCKER_PASS
-docker push kassiyenov/kkm-epam-image:latest'''
+        sh '''sudo docker login -u $DOCKER_USER -p $DOCKER_PASS
+sudo docker push kassiyenov/epam/kkm-epam-image:latest'''
       }
     }
 
