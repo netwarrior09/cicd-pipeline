@@ -18,7 +18,7 @@ pipeline {
         DOCKER_IMG = 'kassiyenov/my-app:latest'
       }
       steps {
-        sh 'docker build -t kassiyenov/epam/kkm-epam-image .'
+        sh 'docker build -t kkm-epam-image .'
       }
     }
 
@@ -29,7 +29,9 @@ pipeline {
       }
       steps {
         sh '''docker login -u $DOCKER_USER -p $DOCKER_PASS
-docker push kassiyenov/epam/kkm-epam-image:latest'''
+docker tag kkm-epam-image kassiyenov/epam
+docker push kassiyenov/epam
+'''
       }
     }
 
