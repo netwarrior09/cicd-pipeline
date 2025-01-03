@@ -14,6 +14,9 @@ pipeline {
     }
 
     stage('docker-build') {
+      environment {
+        DOCKER_IMG = 'kassiyenov/my-app:latest'
+      }
       steps {
         sh 'docker build -t kkm-epam-image .'
       }
